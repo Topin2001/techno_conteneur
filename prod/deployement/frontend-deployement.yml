@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: front-training-app
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: axelpereira/k8s-training-test-app-front:1.0
+          image: axelpereira/k8s-training-test-app-front:1.1
           ports:
             - containerPort: 80
           imagePullPolicy: IfNotPresent
@@ -25,3 +25,6 @@ spec:
             requests:
               cpu: "0.1"
               memory: "256Mi"
+          env:
+            - name: env
+              value: prod
