@@ -4,7 +4,7 @@ metadata:
   name: back-training-app
   namespace: form-k8s-dev
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: back-training-app
@@ -13,6 +13,7 @@ spec:
       labels:
         app: back-training-app
     spec:
+      priorityClassName: dev-priority
       containers:
         - name: back-training-app
           image: axelpereira/k8s-training-test-app-back:1.3
